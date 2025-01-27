@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,27 +11,35 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background-size: cover;
-      background-attachment: fixed;
-      color: #66f;
+      background: linear-gradient(135deg, #0a0f0d, #1a2a22);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #e0e0e0;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .container {
       max-width: 600px;
-      margin: 1px auto;
+      margin: 20px auto;
       padding: 20px;
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(20, 30, 25, 0.9);
       border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1s ease-in-out;
     }
 
     .category {
       font-size: 24px;
       font-weight: bold;
       margin-bottom: 15px;
-      color: #66f;
+      color: #e0e0e0;
       text-transform: uppercase;
-      border-bottom: 3px solid #5c67f2;
+      border-bottom: 3px solid #444;
       padding-bottom: 5px;
       margin-top: 20px;
     }
@@ -46,34 +55,32 @@
       width: 30%;
       padding: 15px;
       margin-bottom: 10px;
-      border: none;
+      border: 2px solid #444;
       border-radius: 5px;
-      color: white;
+      color: #e0e0e0;
       font-size: 16px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
+      background-color: transparent;
+      animation: pulse 2s infinite;
     }
 
     .button:hover {
-      opacity: 0.8;
+      border-color: #00ff88;
+      background-color: #00ff88;
+      color: #0a0f0d;
+      transform: translateY(-2px);
+      animation: none;
     }
 
-    .button:nth-child(3n + 1) {
-      background-color: #66f;
-    }
-
-    .button:nth-child(3n + 2) {
-      background-color: #66f;
-    }
-
-    .button:nth-child(3n + 3) {
-      background-color: #66f;
+    .button:active {
+      transform: translateY(0);
     }
 
     /* 底部提示信息样式 */
     .tip {
       text-align: center;
-      color: #66f;
+      color: #00ff88;
       font-size: 14px;
     }
 
@@ -91,7 +98,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(255, 255, 255, 0.6);
+      background: rgba(0, 255, 136, 0.1);
       z-index: -1;
       border-radius: 10px;
     }
@@ -102,88 +109,272 @@
       to { opacity: 1; }
     }
 
-    .container {
-      animation: fadeIn 1s ease-in-out;
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    /* 搜索框样式 */
+    .search-container {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    #searchInput {
+      width: 80%;
+      padding: 10px;
+      border: 2px solid #444;
+      border-radius: 5px;
+      background-color: transparent;
+      color: #e0e0e0;
+      font-size: 16px;
+    }
+
+    #searchInput::placeholder {
+      color: #888;
+    }
+
+    /* 时钟样式 */
+    .clock-container {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #00ff88;
+    }
+
+
+    /* 公告栏样式 */
+    .announcement {
+      background-color: rgba(0, 255, 136, 0.1);
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      color: #00ff88;
+      font-size: 16px;
+    }
+
+    /* 返回顶部按钮样式 */
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background-color: #00ff88;
+      color: #0a0f0d;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: none;
+    }
+
+    #backToTop:hover {
+      background-color: #00cc66;
+    }
+
+    /* 夜间模式样式 */
+    body.dark-mode {
+      background: #1a1a1a;
+      color: #e0e0e0;
+    }
+
+    .dark-mode .container {
+      background-color: rgba(30, 30, 30, 0.9);
+    }
+
+    .dark-mode .button {
+      border-color: #555;
+      color: #e0e0e0;
+    }
+
+    .dark-mode .button:hover {
+      border-color: #00ff88;
+      background-color: #00ff88;
+      color: #1a1a1a;
+    }
+
+    /* 音乐播放器样式 */
+    .music-player {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+    }
+
+    .music-player button {
+      padding: 10px 15px;
+      background-color: #00ff88;
+      color: #0a0f0d;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .music-player button:hover {
+      background-color: #00cc66;
+    }
+
+    /* 图片轮播样式 */
+    .carousel {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .carousel-inner {
+      display: flex;
+      animation: slide 10s infinite;
+    }
+
+    .carousel img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      33% { transform: translateX(-100%); }
+      66% { transform: translateX(-200%); }
+      100% { transform: translateX(0); }
     }
   </style>
 </head>
 
 <body>
   <div class="container">
+    <!-- 公告栏 -->
+    <div class="announcement">
+      <marquee>欢迎来到小何资源站！</marquee>
+    </div>
+
+    <!-- 搜索框 -->
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="搜索资源..." onkeyup="filterLinks()">
+    </div>
+
+    <!-- 时钟 -->
+    <div class="clock-container">
+      <div id="clock"></div>
+    </div>
+
+
+    <!-- 图片轮播 -->
+    <div class="carousel">
+      <div class="carousel-inner">
+        <img src="3.png" alt="Image 1">
+        <img src="4.png" alt="Image 2">
+        <img src="2.png" alt="Image 3">
+      </div>
+    </div>
+
+    <!-- 号卡平台 -->
     <div class="category">号卡平台</div>
     <div class="button-group">
-      
-      <button class="button" onclick="window.location.href='https://vip.h5haoka.cn/m/login'"> 
-        朽月号卡H5
-      </button>
-      
-      <button class="button" onclick="window.location.href='https://5g.h5haoka.cn/agent/login'"> 
-        朽月号卡PC
-      </button>
-
-      <button class="button" onclick="window.location.href='https://ka.dandanhou.net/agent/login'"> 
-        卡多多号卡
-      </button>
-
-      <button class="button" onclick="window.location.href='http://bbtx.net/web/login'"> 
-        政企校园
-      </button>
-
-      <button class="button" onclick="window.location.href='https://ggtx.10086com.cc/admin/login?id=gg10000'"> 
-        国古物联
-      </button>
-
-      <button class="button" onclick="window.location.href='http://www.guogu.tianiot.com/wlkys/index.html'"> 
-        国古后台
-      </button>
-
-      <button class="button" onclick="window.location.href='http://www.dandan.tianiot.com/wlkys/index.html'"> 
-        卡多多物联
-      </button>
-      
+      <button class="button" onclick="window.open('https://vip.h5haoka.cn/m/login', '_blank')">朽月号卡H5</button>
+      <button class="button" onclick="window.open('https://5g.h5haoka.cn/agent/login', '_blank')">朽月号卡PC</button>
+      <button class="button" onclick="window.open('https://ka.dandanhou.net/agent/login', '_blank')">卡多多号卡</button>
+      <button class="button" onclick="window.open('http://bbtx.net/web/login', '_blank')">政企校园</button>
+      <button class="button" onclick="window.open('https://ggtx.10086com.cc/admin/login?id=gg10000', '_blank')">国古物联</button>
+      <button class="button" onclick="window.open('http://www.guogu.tianiot.com/wlkys/index.html', '_blank')">国古后台</button>
+      <button class="button" onclick="window.open('http://www.dandan.tianiot.com/wlkys/index.html', '_blank')">卡多多物联</button>
     </div>
 
+    <!-- 资源平台 -->
     <div class="category">资源平台</div>
     <div class="button-group">
-
-      <button class="button" onclick="window.location.href='https://vip.h5haoka.cn/index?k=UFc1NWhvd04ycXM9'"> 
-        朽月店铺
-      </button>
-
-      <button class="button" onclick="window.location.href='https://ka.dandanhou.net/index?k=QnpYaXJFcmo2OFk9'"> 
-        卡多多店铺
-      </button>
-
-      <button class="button" onclick="window.location.href='http://bbtx.net/h5/index?shop_id=MzIwOTI=&shua=1'"> 
-        政企校园店铺
-      </button>
-
-      <button class="button" onclick="window.location.href='https://docs.qq.com/sheet/DRWpkUUtNU3pmSkpk'"> 
-        国古政策表
-      </button>
-
-      <button class="button" onclick="window.location.href='https://haowallpaper.com/'"> 
-        壁纸网站
-      </button>
-
-      <button class="button" onclick="window.location.href='https://www.8kmm.com/'"> 
-        无峰导航
-      </button>
-
-      <button class="button" onclick="window.location.href='https://net.ljxnet.cn/'"> 
-        流量消耗器
-      </button>
-
-      <button class="button" onclick="window.location.href='https://hy.10086.cn/s/fsr'"> 
-        移动爱家会员
-      </button>
-
-      <button class="button" onclick="window.location.href='https://www.4kvm.tv/'"> 
-        4K影视
-      </button>
-
+      <button class="button" onclick="window.open('https://vip.h5haoka.cn/index?k=UFc1NWhvd04ycXM9', '_blank')">朽月店铺</button>
+      <button class="button" onclick="window.open('https://ka.dandanhou.net/index?k=QnpYaXJFcmo2OFk9', '_blank')">卡多多店铺</button>
+      <button class="button" onclick="window.open('http://bbtx.net/h5/index?shop_id=MzIwOTI=&shua=1', '_blank')">政企校园店铺</button>
+      <button class="button" onclick="window.open('https://docs.qq.com/sheet/DRWpkUUtNU3pmSkpk', '_blank')">国古政策表</button>
+      <button class="button" onclick="window.open('https://haowallpaper.com/', '_blank')">壁纸网站</button>
+      <button class="button" onclick="window.open('https://www.8kmm.com/', '_blank')">无峰导航</button>
+      <button class="button" onclick="window.open('https://net.ljxnet.cn/', '_blank')">流量消耗器</button>
+      <button class="button" onclick="window.open('https://hy.10086.cn/s/fsr', '_blank')">移动爱家会员</button>
+      <button class="button" onclick="window.open('https://www.4kvm.tv/', '_blank')">4K影视</button>
     </div>
-  
-</body>
+  </div>
 
+  <!-- 返回顶部按钮 -->
+  <button id="backToTop" onclick="scrollToTop()">↑ 返回顶部</button>
+
+  <!-- 夜间模式切换按钮 -->
+  <button id="themeToggle" onclick="toggleTheme()">🌙 夜间模式</button>
+
+  <!-- 音乐播放器 -->
+  <div class="music-player">
+    <audio id="backgroundMusic" loop>
+      <source src="1.mp3" type="audio/mpeg">
+      您的浏览器不支持音频元素。
+    </audio>
+    <button onclick="toggleMusic()">🎵 播放音乐</button>
+  </div>
+
+  <script>
+    // 搜索功能
+    function filterLinks() {
+      const input = document.getElementById('searchInput').value.toUpperCase();
+      const buttons = document.querySelectorAll('.button');
+
+      buttons.forEach(button => {
+        const text = button.textContent.toUpperCase();
+        if (text.indexOf(input) > -1) {
+          button.style.display = '';
+        } else {
+          button.style.display = 'none';
+        }
+      });
+    }
+
+    // 时钟功能
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+
+
+    // 返回顶部功能
+    window.onscroll = function() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById('backToTop').style.display = 'block';
+      } else {
+        document.getElementById('backToTop').style.display = 'none';
+      }
+    };
+
+    function scrollToTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+    // 夜间模式功能
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      const themeToggle = document.getElementById('themeToggle');
+      if (document.body.classList.contains('dark-mode')) {
+        themeToggle.textContent = '☀️ 日间模式';
+      } else {
+        themeToggle.textContent = '🌙 夜间模式';
+      }
+    }
+
+    // 音乐播放功能
+    const music = document.getElementById('backgroundMusic');
+
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+        document.querySelector('.music-player button').textContent = '🎵 暂停音乐';
+      } else {
+        music.pause();
+        document.querySelector('.music-player button').textContent = '🎵 播放音乐';
+      }
+    }
+  </script>
+</body>
 </html>
