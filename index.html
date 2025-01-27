@@ -213,30 +213,6 @@
       background-color: #00cc66;
     }
 
-    /* 图片轮播样式 */
-    .carousel {
-      width: 100%;
-      overflow: hidden;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-
-    .carousel-inner {
-      display: flex;
-      animation: slide 10s infinite;
-    }
-
-    .carousel img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    @keyframes slide {
-      0% { transform: translateX(0); }
-      33% { transform: translateX(-100%); }
-      66% { transform: translateX(-200%); }
-      100% { transform: translateX(0); }
-    }
   </style>
 </head>
 
@@ -255,16 +231,6 @@
     <!-- 时钟 -->
     <div class="clock-container">
       <div id="clock"></div>
-    </div>
-
-
-    <!-- 图片轮播 -->
-    <div class="carousel">
-      <div class="carousel-inner">
-        <img src="3.png" alt="Image 1">
-        <img src="4.png" alt="Image 2">
-        <img src="2.png" alt="Image 3">
-      </div>
     </div>
 
     <!-- 号卡平台 -->
